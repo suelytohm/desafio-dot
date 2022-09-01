@@ -1,0 +1,9 @@
+.movies {
+    margin: 50px;
+}
+
+.card-list {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
