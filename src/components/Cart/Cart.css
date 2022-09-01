@@ -1,0 +1,14 @@
+.cart {
+    position: fixed;
+    width: 300px;
+    top: 50px;
+    right: 0px;
+    z-index: 100;
+    background-color: white;
+    height: calc(100vh - 50px);
+    transition: 0.7s all;
+}
+
+.hide {
+    right: -300px;
+}

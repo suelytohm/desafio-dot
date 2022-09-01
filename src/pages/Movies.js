@@ -5,10 +5,11 @@ import Navbar from "../components/Navbar";
 import "./Movies.css";
 
 import { useFetch } from "../hooks/useFetch";
+import { useCart } from "../context/useCart";
 
 const Movies = () => {
     const [search, setSearch] = useState("");
-
+    const { addMovie } = useCart();
     const url = "https://api.themoviedb.org/3/discover/movie?api_key=2d01e95445f89f6e7aeb8534848b8c24&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";
 
     const {data: items, loading, error} = useFetch(url);
@@ -21,6 +22,10 @@ const Movies = () => {
 
     const handleSearch = (value) => {
         setSearch(value)
+    }
+
+    const handleAddMovie = (movie) => {
+        addMovie(movie);
     }
 
     return (
@@ -42,7 +47,8 @@ const Movies = () => {
                         value={79.99} 
                         genreId={item.genre_ids[0]} 
                         releaseDate={item.release_date} 
-                        imgBanner={item.poster_path} />
+                        imgBanner={item.poster_path} 
+                        onAdd={() => handleAddMovie(item)}/>
                     ))}
                 </div>
 

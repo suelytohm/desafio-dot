@@ -1,14 +1,13 @@
 import React, { useMemo, useState } from 'react'
 import "./CardMovie.css";
+import { formatMoney } from "../../utils/format";
 
-import { genres } from "../assets/genres";
+import { genres } from "../../assets/genres";
 
-const CardMovie = ({ id, name, rating, genreId, value, imgBanner, releaseDate }) => {
-
-    const [favorite, setFavorite] = useState(0);
+const CardMovie = ({ id, name, rating, genreId, value, imgBanner, releaseDate, onAdd }) => {
 
     const addItem = () => {
-        setFavorite(favorite + 1);
+        onAdd?.();
     }
 
     const genreName = useMemo(() => {
@@ -24,7 +23,7 @@ const CardMovie = ({ id, name, rating, genreId, value, imgBanner, releaseDate })
         const year = new Intl.DateTimeFormat("pt-BR", {year: "numeric"}).format(theDate);
 
         return `${day} de ${month.charAt(0).toUpperCase() + month.slice(1)}, ${year}`;
-        
+
     }, [releaseDate])
 
     const img = "https://image.tmdb.org/t/p/w500" + imgBanner;
@@ -52,7 +51,7 @@ const CardMovie = ({ id, name, rating, genreId, value, imgBanner, releaseDate })
             <span> { genreName } </span> 
             </div>
             <div className = "price" >
-            <p> R$ { value } </p>
+            <p>{ formatMoney(value) }</p>
             </div>
             <div className = "add-item" >
                 <button onClick = { addItem } > Adicionar </button>
