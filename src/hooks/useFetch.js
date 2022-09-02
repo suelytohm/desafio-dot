@@ -51,7 +51,6 @@ export const useFetch = url => {
         setData(json)
         setError(null)
       } catch (error) {
-        console.log(error)
         setError('Erro ao carregar dados!')
       }
 

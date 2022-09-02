@@ -2,8 +2,8 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Pages
-import Movies from './pages/Movies'
 import NotFound from './pages/NotFound'
+import Movies from './pages/Movies'
 import { CartProvider } from './context/useCart'
 import { Checkout } from './pages/Checkout'
 

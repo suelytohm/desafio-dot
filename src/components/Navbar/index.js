@@ -6,6 +6,7 @@ import { useCart } from '../../context/useCart'
 import logo from '../../assets/images/logo.png'
 
 import './Navbar.css'
+
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export const Navbar = ({ onSearch }) => {

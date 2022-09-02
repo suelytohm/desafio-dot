@@ -1,13 +1,12 @@
 import { useMemo, useState } from 'react'
-import CardMovie from '../components/CardMovie'
-import Navbar from '../components/Navbar'
+import CardMovie from '../../components/CardMovie'
 
 import './Movies.css'
 
-import { useFetch } from '../hooks/useFetch'
-import { useCart } from '../context/useCart'
+import { useFetch } from '../../hooks/useFetch'
+import { useCart } from '../../context/useCart'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { Layout } from '../components/Layout'
+import { Layout } from '../../components/Layout'
 
 const Movies = () => {
   const [search, setSearch] = useState('')

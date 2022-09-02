@@ -1,2 +1,12 @@
 .checkout-page {
+  margin: 50px;
+  text-align: left;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

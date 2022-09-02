@@ -1,0 +1,12 @@
+.FormCheckout form {
+  width: 500px;
+}
+
+.FormCheckout input {
+  width: 100%;
+  font-size: 15px;
+  padding: 10px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

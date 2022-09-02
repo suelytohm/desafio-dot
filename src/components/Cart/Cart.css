@@ -112,3 +112,13 @@
 .cart .footer button:hover {
   opacity: 0.8;
 }
+
+.cart .footer p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.cart .footer span {
+  font-weight: bold;
+}

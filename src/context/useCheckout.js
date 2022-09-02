@@ -11,11 +11,10 @@ const initialState = {
   removeAllMovies: () => {},
 }
 
-const CartContext = createContext(initialState)
+const CheckoutContext = createContext(initialState)
 
-export const CartProvider = ({ children }) => {
+export const CheckoutProvider = ({ children }) => {
   const [movies, setMovies] = useState(initialState.movies)
-  const [visible, setVisible] = useState(initialState.visible)
 
   const totalPrice = useMemo(() => {
     return movies.reduce((accumulator, movie) => {
@@ -85,7 +84,7 @@ export const CartProvider = ({ children }) => {
   )
 }
 
-export const useCart = () => {
+export const useCheckout = () => {
   const context = useContext(CartContext)
   return {
     movies: context.movies,

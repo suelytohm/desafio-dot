@@ -1,0 +1,29 @@
+.table-movie {
+  width: 500px;
+}
+
+.table-movie table {
+  width: 100%;
+}
+
+.table-movie th {
+  padding-bottom: 20px;
+}
+.table-movie tbody {
+  text-align: left;
+}
+
+.table-movie img {
+  width: 50px;
+}
+
+.total-price {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-price span {
+  font-size: 25px;
+  font-weight: bold;
+}
