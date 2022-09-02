@@ -1,105 +1,87 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 // Criando custom hook
 
-export const useFetch = (url) => {
+export const useFetch = url => {
+  const [data, setData] = useState(null)
 
-    
-    
-    const [data, setData] = useState(null);
-    
-    // Refatorando o POST
-    const [config, setConfig] = useState(null);
-    const [method, setMethod] = useState(null);
-    const [callFetch, setCallFetch] = useState(false);
+  // Refatorando o POST
+  const [config, setConfig] = useState(null)
+  const [method, setMethod] = useState(null)
+  const [callFetch, setCallFetch] = useState(false)
 
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
-    const [error, setError] = useState(null);
+  const [error, setError] = useState(null)
 
-    const [itemId, setItemId] = useState(null)
+  const [itemId, setItemId] = useState(null)
 
+  const httpConfig = (data, method) => {
+    if (method === 'POST') {
+      setConfig({
+        method,
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
 
-    const httpConfig = (data, method) => {
-        if(method === "POST"){
-            setConfig({
-                method,
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+      setMethod(method)
+    } else if (method === 'DELETE') {
+      setConfig({
+        method,
+        headers: {
+          'Content-type': 'application/json',
+        },
+      })
 
-            setMethod(method);
-        } else if (method === "DELETE") {
-            setConfig({
-                method,
-                headers: {
-                    "Content-type": "application/json"
-                }
-            });
+      setMethod(method)
+      setItemId(data)
+    }
+  }
 
-            setMethod(method);
-            setItemId(data);
-        }
-    };
+  useEffect(() => {
+    ;(async () => {
+      setLoading(true)
 
-    useEffect(() => {
-        (async() => {
+      try {
+        const res = await fetch(url)
+        const json = await res.json()
 
-            setLoading(true);
+        setData(json)
+        setError(null)
+      } catch (error) {
+        console.log(error)
+        setError('Erro ao carregar dados!')
+      }
 
-            try {
-                const res = await fetch(url);
-                const json = await res.json();
-    
-                setData(json);
-                setError(null);
-                
-            } catch (error) {
-                console.log(error)
-                setError("Erro ao carregar dados!");                
-            }
+      setLoading(false)
+    })()
+  }, [url, callFetch])
 
-            setLoading(false);
+  useEffect(() => {
+    ;(async () => {
+      let json
 
+      if (method === 'POST') {
+        let fetchOptions = [url, config]
 
-        })();
+        const res = await fetch(...fetchOptions)
 
-    }, [url, callFetch]);
+        json = await res.json()
 
+        setCallFetch(json)
+      } else if (method === 'DELETE') {
+        let deleteUrl = `${url}/${itemId}`
 
-    useEffect(() => {
-        (async() => {
+        const res = await fetch(deleteUrl, config)
 
-            let json; 
-            
-            if(method === "POST"){
+        json = await res.json()
 
-                let fetchOptions = [url, config];
+        setCallFetch(json)
+      }
+    })()
+  }, [config, method, url, itemId])
 
-                const res = await fetch(...fetchOptions);
-
-                json = await res.json();
-
-                setCallFetch(json);
-
-            } else if(method === "DELETE"){
-
-                let deleteUrl = `${url}/${itemId}`;
-
-                const res = await fetch(deleteUrl, config);
-
-                json = await res.json();
-
-                setCallFetch(json);
-
-            }
-
-
-        })();
-
-    }, [config, method, url, itemId])
-
-    return { data, httpConfig, loading, error };
+  return { data, httpConfig, loading, error }
 }

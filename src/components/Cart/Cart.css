@@ -1,14 +1,114 @@
 .cart {
-    position: fixed;
-    width: 300px;
-    top: 50px;
-    right: 0px;
-    z-index: 100;
-    background-color: white;
-    height: calc(100vh - 50px);
-    transition: 0.7s all;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 500px;
+  top: 47px;
+  right: 0px;
+  z-index: 100;
+  background-color: white;
+  height: calc(100vh - 50px);
+  transition: 0.7s all;
+
+  border: 3px solid #8dd7cf;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .hide {
-    right: -300px;
+  right: -510px;
+}
+
+.cart ul {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  gap: 15px;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.cart li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.button-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.header button {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s all;
+
+  padding: 15px;
+}
+
+.header button:hover {
+  border: 0;
+  background-color: #8dd7cf;
+  cursor: pointer;
+}
+
+.movie-title {
+  flex: 1;
+  text-align: left;
+}
+
+.cart img {
+  width: 50px;
+}
+
+.cart .movie-title {
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+.cart .movie-amount {
+  font-weight: bold;
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+.cart .movie-price {
+  font-weight: bold;
+  padding: 0 15px;
+  font-size: 20px;
+}
+
+.cart .footer {
+  padding: 20px;
+}
+
+.cart .footer button {
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 50px;
+  background-color: #6558f5;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.cart .footer button:hover {
+  opacity: 0.8;
 }
