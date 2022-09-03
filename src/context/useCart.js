@@ -2,15 +2,7 @@ import { createContext, useContext, useState, useMemo } from 'react'
 import { resolveImage } from '../utils/image'
 
 const initialState = {
-  movies: [
-    {
-      id: 1,
-      title: 'movie.title',
-      price: 79,
-      amount: 1,
-      image: resolveImage(''),
-    },
-  ],
+  movies: [],
   visible: false,
   totalPrice: 0,
   addMovie: () => {},
