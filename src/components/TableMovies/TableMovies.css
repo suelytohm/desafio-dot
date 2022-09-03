@@ -7,6 +7,11 @@
 }
 
 .table-movie th {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.table-movie th {
   padding-bottom: 20px;
 }
 .table-movie tbody {
@@ -26,4 +31,8 @@
 .total-price span {
   font-size: 25px;
   font-weight: bold;
+}
+
+.button-remove {
+  margin-left: 25px;
 }

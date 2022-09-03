@@ -94,7 +94,7 @@
 .cart .footer {
   padding: 20px;
 }
-
+/* 
 .cart .footer button {
   width: 100%;
   outline: none;
@@ -111,7 +111,7 @@
 
 .cart .footer button:hover {
   opacity: 0.8;
-}
+} */
 
 .cart .footer p {
   display: flex;

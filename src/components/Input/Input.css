@@ -1,0 +1,18 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.input-container label {
+  font-weight: bold;
+}
+
+.input-container input {
+  width: 100%;
+}
+
+.input-container .input-error-message {
+  color: red;
+}

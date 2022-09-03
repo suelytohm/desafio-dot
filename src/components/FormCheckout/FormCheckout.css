@@ -1,3 +1,8 @@
+.FormCheckout {
+  width: 500px;
+  display: flex;
+}
+
 .FormCheckout form {
   width: 500px;
 }

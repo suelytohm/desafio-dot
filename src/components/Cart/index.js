@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 import './Cart.css'
 import { ButtonRemoveMovie } from '../ButtonRemoveMovie'
+import { Button } from '../Button'
 
 export const Cart = () => {
   const { movies, visible, totalPrice, removeAllMovies, toggleVisibility } =
@@ -13,7 +14,7 @@ export const Cart = () => {
   const [parent] = useAutoAnimate()
   const navigate = useNavigate()
 
-  const finalizarCompra = () => {
+  const goToCheckout = () => {
     toggleVisibility()
     navigate('/checkout')
   }
@@ -43,7 +44,7 @@ export const Cart = () => {
           Total: <span>{formatMoney(totalPrice)}</span>
         </p>
         {/* <button onClick={() => navigate('/checkout')}>Finalizar Compra</button> */}
-        <button onClick={finalizarCompra}>Finalizar Compra</button>
+        <Button onClick={goToCheckout}>Finalizar Compra</Button>
       </div>
     </div>
   )

@@ -2,11 +2,13 @@ import { FormCheckout } from '../../components/FormCheckout'
 import { Layout } from '../../components/Layout'
 import { TableMovies } from '../../components/TableMovies'
 import { useCart } from '../../context/useCart'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Link } from 'react-router-dom'
 import './Checkout.css'
 
 export const Checkout = () => {
   const { movies } = useCart()
+  const [parent] = useAutoAnimate()
 
   return (
     <Layout>
@@ -17,11 +19,13 @@ export const Checkout = () => {
             <Link to="/">Escolha um Filme</Link>
           </div>
         ) : (
-          <div>
+          <>
             <h1>Finalizar Compra</h1>
-            <FormCheckout />
-            <TableMovies />
-          </div>
+            <div className="checkout" ref={parent}>
+              <FormCheckout id="checkout-form" />
+              <TableMovies formId="checkout-form" />
+            </div>
+          </>
         )}
       </div>
     </Layout>

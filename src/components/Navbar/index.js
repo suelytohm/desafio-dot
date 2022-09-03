@@ -34,7 +34,7 @@ export const Navbar = ({ onSearch }) => {
           value={search}
           placeholder="Pesquisa"
         />
-        <button type="submit">Search</button>
+        <button className="search-button">Search</button>
       </div>
       <div className="actions">
         <button>

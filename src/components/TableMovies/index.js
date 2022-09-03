@@ -2,12 +2,12 @@ import React from 'react'
 
 import { useCart } from '../../context/useCart'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-
 import { ButtonRemoveMovie } from '../ButtonRemoveMovie'
 import { formatMoney } from '../../utils/format'
-
+import { Button } from '../Button'
 import './TableMovies.css'
-export const TableMovies = () => {
+
+export const TableMovies = ({ formId }) => {
   const { movies, totalPrice } = useCart()
   const [parent] = useAutoAnimate()
 
@@ -31,7 +31,8 @@ export const TableMovies = () => {
               <td>{movie.title}</td>
               <td>{movie.amount}</td>
               <td>
-                {movie.price} <ButtonRemoveMovie movie={movie} />
+                <span>{formatMoney(movie.price)}</span>
+                <ButtonRemoveMovie movie={movie} className="button-remove" />
               </td>
             </tr>
           ))}
@@ -40,6 +41,11 @@ export const TableMovies = () => {
       <div className="total-price">
         <h3>Total: </h3>
         <span>{formatMoney(totalPrice)}</span>
+      </div>
+      <div className="button-finish">
+        <Button form={formId} type="submit">
+          Finalizar
+        </Button>
       </div>
     </div>
   )
