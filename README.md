@@ -2,7 +2,8 @@
 
 This test is the challenge of Front-End Developer
 
-![image](https://user-images.githubusercontent.com/16282738/188453674-32ebdb2b-88bb-48eb-b6ab-81d707be5398.png)
+![image](https://user-images.githubusercontent.com/16282738/188516116-7caf6c3c-0adc-4d48-86cb-661bb3287bc2.png)
+
 
 
 ## 📖 Libraries Used
