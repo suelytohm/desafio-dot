@@ -2,6 +2,9 @@
 
 This test is the challenge of Front-End Developer
 
+![image](https://user-images.githubusercontent.com/16282738/188453674-32ebdb2b-88bb-48eb-b6ab-81d707be5398.png)
+
+
 ## 📖 Libraries Used
 
 - [React Router Dom](https://www.npmjs.com/package/react-router-dom): Application routes.
@@ -18,5 +21,5 @@ This test is the challenge of Front-End Developer
 3. Clone this repository by running:
 4. git clone https://github.com/suelytohm/desafio-dot.git;
 5. Enter the folder running through the terminal: cd desafio-dot;
-6. Run npm install to install the project dependencies;
-7. Run npm start to start the application.
+6. Run ```npm install``` to install the project dependencies;
+7. Run ```npm start``` to start the application.
