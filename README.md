@@ -2,7 +2,7 @@
 
 This test is the challenge of Front-End Developer
 
-![image](https://user-images.githubusercontent.com/16282738/188516116-7caf6c3c-0adc-4d48-86cb-661bb3287bc2.png)
+![image](https://user-images.githubusercontent.com/16282738/188516152-d7a299d3-aac4-429b-976a-62bc5014a79c.png)
 
 
 
