@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../../Button'
 import { useModal } from '../../../context/useModal'
+import { useCart } from '../../../context/useCart'
 
 import './ModalCheckout.css'
 
@@ -8,11 +9,14 @@ import { Modal } from '..'
 
 export const ModalCheckout = () => {
   const { data, clearData } = useModal()
+  const { removeAllMovies } = useCart()
+
   const navigate = useNavigate()
 
   const handleGoToStore = () => {
     navigate('/')
     clearData()
+    removeAllMovies()
   }
 
   return (
