@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 import './Checkout.css'
 
 export const Checkout = () => {
-  const { movies } = useCart()
+  const { movies, showModal } = useCart()
   const [parent] = useAutoAnimate()
 
   return (
     <Layout>
-      <div className="checkout-page">
+      <div className="checkout-page" ref={parent}>
         {movies.length === 0 ? (
           <div>
             <h1>Carrinho Vazio</h1>
@@ -21,7 +21,7 @@ export const Checkout = () => {
         ) : (
           <>
             <h1>Finalizar Compra</h1>
-            <div className="checkout" ref={parent}>
+            <div className="checkout">
               <FormCheckout id="checkout-form" />
               <TableMovies formId="checkout-form" />
             </div>

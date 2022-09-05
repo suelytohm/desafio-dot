@@ -1,34 +1,14 @@
-import Modal from 'react-modal'
+import { ModalPortal } from '../ModalPortal'
+import { Navigate, Link } from 'react-router-dom'
+import { Button } from '../Button'
+import { useModal } from '../../context/useModal'
 
-Modal.setAppElement('#yourAppElement')
+import './Modal.css'
 
-export const Modalindex = () => {
-  let subtitle
-  const [modalIsOpen, setIsOpen] = React.useState(false)
+export const Modal = ({ children }) => {
+  const { open } = useModal()
 
-  function openModal() {
-    setIsOpen(true)
-  }
+  if (!open) return null
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00'
-  }
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  return (
-    <Modal
-      isOpen={modalIsOpen}
-      onAfterOpen={afterOpenModal}
-      onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel="Example Modal">
-      <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-      <button onClick={closeModal}>close</button>
-      <div>I am a modal</div>
-    </Modal>
-  )
+  return <ModalPortal>{children}</ModalPortal>
 }

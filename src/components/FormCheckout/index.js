@@ -4,17 +4,19 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import schema from './validator'
 import { Input } from '../Input'
 import { maskCpf, maskPhoneNumber, maskCep } from '../../utils/mask'
+import { useModal } from '../../context/useModal'
 
 export const FormCheckout = ({ id }) => {
+  const { handleOpen } = useModal()
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) })
 
-  console.log(errors)
   const handleFormValid = data => {
-    console.log('TUDO CERTO', data)
+    handleOpen({ name: data.name })
   }
 
   return (

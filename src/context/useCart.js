@@ -9,6 +9,7 @@ const initialState = {
   removeMovie: () => {},
   toggleVisibility: () => {},
   removeAllMovies: () => {},
+  showModal: () => {},
 }
 
 const CartContext = createContext(initialState)
@@ -24,6 +25,10 @@ export const CartProvider = ({ children }) => {
       return accumulator + price
     }, 0)
   }, [movies])
+
+  const showModal = data => {
+    console.log('testeeeeeeee', data)
+  }
 
   // Verifica se existe o filme informado
   const movieExists = (movies, movie) => {
@@ -69,6 +74,8 @@ export const CartProvider = ({ children }) => {
     setVisible(_visible => !_visible)
   }
 
+  const modalVisibility = () => {}
+
   return (
     <CartContext.Provider
       value={{
@@ -79,6 +86,7 @@ export const CartProvider = ({ children }) => {
         removeMovie,
         toggleVisibility,
         removeAllMovies,
+        showModal,
       }}>
       {children}
     </CartContext.Provider>
@@ -95,5 +103,6 @@ export const useCart = () => {
     removeMovie: context.removeMovie,
     toggleVisibility: context.toggleVisibility,
     removeAllMovies: context.removeAllMovies,
+    showModal: context.showModal,
   }
 }
