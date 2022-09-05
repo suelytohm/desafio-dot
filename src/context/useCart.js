@@ -74,8 +74,6 @@ export const CartProvider = ({ children }) => {
     setVisible(_visible => !_visible)
   }
 
-  const modalVisibility = () => {}
-
   return (
     <CartContext.Provider
       value={{

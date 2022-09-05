@@ -14,15 +14,15 @@ export const ModalCheckout = () => {
   const navigate = useNavigate()
 
   const handleGoToStore = () => {
-    navigate('/')
     clearData()
     removeAllMovies()
+    navigate('/')
   }
 
   return (
     <Modal>
       <div className="modal">
-        <h2>Obrigado {data.name}</h2>
+        <h2>Obrigado {data.name}!</h2>
         <span>Sua compra foi finalizada com sucesso!</span>
 
         <Button onClick={handleGoToStore}>Ir para loja</Button>

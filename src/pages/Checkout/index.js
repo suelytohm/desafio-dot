@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import './Checkout.css'
 
 export const Checkout = () => {
-  const { movies, showModal } = useCart()
+  const { movies } = useCart()
   const [parent] = useAutoAnimate()
 
   return (
