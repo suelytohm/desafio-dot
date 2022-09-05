@@ -11,12 +11,14 @@ const initialState = {
   removeAllMovies: () => {},
 }
 
+// Contexto do carrinho, para ser usado por outros componentes
 const CartContext = createContext(initialState)
 
 export const CartProvider = ({ children }) => {
   const [movies, setMovies] = useState(initialState.movies)
   const [visible, setVisible] = useState(initialState.visible)
 
+  // Soma dos valores dos filmes adicionados ao carrinho
   const totalPrice = useMemo(() => {
     return movies.reduce((accumulator, movie) => {
       const price = movie.amount * movie.price
@@ -30,7 +32,6 @@ export const CartProvider = ({ children }) => {
     return !!movies.some(m => m.id === movie.id)
   }
 
-  // Adiciona o filme informado
   const incrementMovieAmount = (movies, movie) => {
     return movies.map(m => {
       if (m.id === movie.id) return { ...m, amount: m.amount + 1 }
@@ -38,6 +39,7 @@ export const CartProvider = ({ children }) => {
     })
   }
 
+  // Adiciona o filme informado ao carrinho
   const addMovie = movie => {
     setMovies(_movies => {
       if (movieExists(_movies, movie)) {
@@ -54,17 +56,20 @@ export const CartProvider = ({ children }) => {
     })
   }
 
+  // Remove o filme informado do carrinho
   const removeMovie = movie => {
     setMovies(_movies => {
       return _movies.filter(m => m.id !== movie.id)
     })
   }
 
+  // Remove todos os filmes do carrinho
   const removeAllMovies = () => {
     setVisible(false)
     setMovies([])
   }
 
+  // Carrinho visível ou invisível
   const toggleVisibility = () => {
     setVisible(_visible => !_visible)
   }

@@ -1,3 +1,4 @@
+// Validação de CPF
 export const validateCpf = cpf => {
   cpf = cpf.replace(/[^\d]+/g, '')
   if (cpf === '') return false

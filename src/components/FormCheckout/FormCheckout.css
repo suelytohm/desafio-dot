@@ -1,14 +1,15 @@
 .FormCheckout {
-  width: 500px;
+  width: 400px;
   display: flex;
+  margin-bottom: 50px;
 }
 
 .FormCheckout form {
-  width: 500px;
+  width: 320px;
 }
 
 .FormCheckout input {
-  width: 100%;
+  width: 80%;
   font-size: 15px;
   padding: 10px;
   margin: 10px 5px;

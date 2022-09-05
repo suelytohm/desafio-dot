@@ -9,11 +9,18 @@
 .table-movie th {
   overflow-y: auto;
   overflow-x: auto;
-}
-
-.table-movie th {
   padding-bottom: 20px;
 }
+
+.table-movie td {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.table-movie td span {
+  margin-bottom: 25px;
+}
+
 .table-movie tbody {
   text-align: left;
 }

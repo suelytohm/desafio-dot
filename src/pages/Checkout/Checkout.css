@@ -1,9 +1,12 @@
 .checkout-page {
-  margin: 50px;
+  padding: 3%;
   text-align: left;
+  max-width: 100%;
 }
 
 .checkout {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 150px;
 }

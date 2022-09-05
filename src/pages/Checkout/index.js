@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { FormCheckout } from '../../components/FormCheckout'
 import { Layout } from '../../components/Layout'
 import { TableMovies } from '../../components/TableMovies'
@@ -9,6 +10,10 @@ import './Checkout.css'
 export const Checkout = () => {
   const { movies } = useCart()
   const [parent] = useAutoAnimate()
+
+  useEffect(() => {
+    document.title = 'Finalizar Compra'
+  }, [])
 
   return (
     <Layout>

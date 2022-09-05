@@ -13,6 +13,7 @@ export const ModalCheckout = () => {
 
   const navigate = useNavigate()
 
+  // Limpando dados do modal e do carrinho ao finalizar compra
   const handleGoToStore = () => {
     clearData()
     removeAllMovies()
