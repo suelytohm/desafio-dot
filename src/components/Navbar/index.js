@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AiFillHeart } from 'react-icons/ai'
 import { IoIosCart } from 'react-icons/io'
 import { useCart } from '../../context/useCart'
+import { useFavorites } from '../../context/useFavorites'
 
 import logo from '../../assets/images/logo.png'
 
@@ -11,14 +12,39 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export const Navbar = ({ onSearch }) => {
   const [search, setSearch] = useState('')
-  const { toggleVisibility, movies } = useCart()
+  const {
+    toggleVisibility: toggleVisibilityCart,
+    movies,
+    visible: isCartVisible,
+  } = useCart()
+  const {
+    toggleVisibility: toggleVisibilityFavorite,
+    visible: isFavoriteVisible,
+  } = useFavorites()
 
   const [parent] = useAutoAnimate()
   const handleSearch = event => {
     const value = event.target.value
-
     setSearch(value)
     onSearch?.(value)
+  }
+
+  const handleToggleFavoriteVisibility = () => {
+    if (isCartVisible) {
+      toggleVisibilityCart()
+      setTimeout(toggleVisibilityFavorite, 700)
+    } else {
+      toggleVisibilityFavorite()
+    }
+  }
+
+  const handleToggleCartVisibility = () => {
+    if (isFavoriteVisible) {
+      toggleVisibilityFavorite()
+      setTimeout(toggleVisibilityCart, 700)
+    } else {
+      toggleVisibilityCart()
+    }
   }
 
   return (
@@ -37,10 +63,13 @@ export const Navbar = ({ onSearch }) => {
         <button className="search-button">Search</button>
       </div>
       <div className="actions">
-        <button>
+        <button onClick={handleToggleFavoriteVisibility}>
           <AiFillHeart color="#fff" size={25} />
         </button>
-        <div className="button" ref={parent} onClick={toggleVisibility}>
+        <div
+          className="button"
+          ref={parent}
+          onClick={handleToggleCartVisibility}>
           {movies.length > 0 && <span>{movies.length}</span>}
           <button>
             <IoIosCart color="#fff" size={25} />

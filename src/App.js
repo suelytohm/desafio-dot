@@ -9,6 +9,7 @@ import { Checkout } from './pages/Checkout'
 import { PortalModals } from './PortalModals'
 import { ModalProvider } from './context/useModal'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { FavoritesProvider } from './context/useFavorites'
 
 // Components
 
@@ -20,14 +21,16 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <ModalProvider>
           <CartProvider>
-            <BrowserRouter>
-              <PortalModals />
-              <Routes>
-                <Route path="/" element={<Movies />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
+            <FavoritesProvider>
+              <BrowserRouter>
+                <PortalModals />
+                <Routes>
+                  <Route path="/" element={<Movies />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+            </FavoritesProvider>
           </CartProvider>
         </ModalProvider>
       </QueryClientProvider>

@@ -15,7 +15,6 @@ export const FormCheckout = ({ id }) => {
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) })
 
-  // Exibindo o modal ao finalizar a validação, passando o nome do cliente
   const handleFormValid = data => {
     handleOpen({ name: data.name })
   }

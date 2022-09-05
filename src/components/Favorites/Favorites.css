@@ -1,4 +1,4 @@
-.cart {
+.favorites {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -19,7 +19,7 @@
   right: -510px;
 }
 
-.cart ul {
+.favorites ul {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -29,7 +29,7 @@
   padding: 0 20px;
 }
 
-.cart li {
+.favorites li {
   display: flex;
   align-items: center;
   list-style: none;
@@ -46,8 +46,18 @@
   background: none;
   border: none;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
   margin-top: 5px;
-  margin-right: 5px;
+}
+
+.button-cart {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
 }
 
 .header button {
@@ -56,7 +66,6 @@
   cursor: pointer;
   font-size: 15px;
   transition: 0.3s all;
-
   padding: 15px;
 }
 
@@ -71,37 +80,37 @@
   text-align: left;
 }
 
-.cart img {
+.favorites img {
   width: 50px;
 }
 
-.cart .movie-title {
+.favorites .movie-title {
   padding: 0 10px;
   font-size: 20px;
 }
 
-.cart .movie-amount {
+.favorites .movie-amount {
   font-weight: bold;
   padding: 0 10px;
   font-size: 20px;
 }
 
-.cart .movie-price {
+.favorites .movie-price {
   font-weight: bold;
   padding: 0 15px;
   font-size: 20px;
 }
 
-.cart .footer {
+.favorites .footer {
   padding: 20px;
 }
 
-.cart .footer p {
+.favorites .footer p {
   display: flex;
   justify-content: space-between;
   font-size: 25px;
 }
 
-.cart .footer span {
+.favorites .footer span {
   font-weight: bold;
 }

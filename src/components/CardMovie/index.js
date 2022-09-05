@@ -5,6 +5,9 @@ import { resolveImage } from '../../utils/image'
 
 import { genres } from '../../assets/genres'
 
+import { AiFillHeart } from 'react-icons/ai'
+import { useFavorites } from '../../context/useFavorites'
+
 const CardMovie = ({
   id,
   name,
@@ -15,9 +18,7 @@ const CardMovie = ({
   releaseDate,
   onAdd,
 }) => {
-  const addItem = () => {
-    onAdd?.()
-  }
+  const { toggleMovie, isMovieFavorite } = useFavorites()
 
   const genreName = useMemo(() => {
     return genres.find(genre => genre.id === genreId)?.name || 'Sem gênero'
@@ -45,6 +46,15 @@ const CardMovie = ({
   return (
     <div className="card">
       <div className="banner">
+        <div className="heart">
+          <AiFillHeart
+            onClick={() =>
+              toggleMovie({ id, title: name, poster_path: imgBanner })
+            }
+            color={isMovieFavorite(id) ? 'red' : '#4B5C6B'}
+            size={30}
+          />
+        </div>
         <img
           className="img-banner"
           src={resolveImage(imgBanner)}
@@ -72,7 +82,7 @@ const CardMovie = ({
         <p>{formatMoney(value)}</p>
       </div>
       <div className="add-item">
-        <button onClick={addItem}>Adicionar</button>
+        <button onClick={onAdd}>Adicionar</button>
       </div>
     </div>
   )

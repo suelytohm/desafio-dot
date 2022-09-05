@@ -37,11 +37,6 @@ const Movies = () => {
     setSearch(value)
   }
 
-  // Adicionando filmes ao carrinho
-  const handleAddMovie = movie => {
-    addMovie(movie)
-  }
-
   useEffect(() => {
     document.title = 'Filmes'
   }, [])
@@ -80,7 +75,7 @@ const Movies = () => {
                   genreId={item.genre_ids[0]}
                   releaseDate={item.release_date}
                   imgBanner={item.poster_path}
-                  onAdd={() => handleAddMovie(item)}
+                  onAdd={() => addMovie(item)}
                 />
               ))}
           </div>

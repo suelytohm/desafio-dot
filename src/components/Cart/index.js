@@ -43,7 +43,6 @@ export const Cart = () => {
         <p>
           Total: <span>{formatMoney(totalPrice)}</span>
         </p>
-        {/* <button onClick={() => navigate('/checkout')}>Finalizar Compra</button> */}
         <Button onClick={goToCheckout}>Finalizar Compra</Button>
       </div>
     </div>
