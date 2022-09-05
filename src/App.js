@@ -8,24 +8,29 @@ import { CartProvider } from './context/useCart'
 import { Checkout } from './pages/Checkout'
 import { PortalModals } from './PortalModals'
 import { ModalProvider } from './context/useModal'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Components
 
 function App() {
+  const queryClient = new QueryClient()
+
   return (
     <div className="App">
-      <ModalProvider>
-        <CartProvider>
-          <BrowserRouter>
-            <PortalModals />
-            <Routes>
-              <Route path="/" element={<Movies />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </CartProvider>
-      </ModalProvider>
+      <QueryClientProvider client={queryClient}>
+        <ModalProvider>
+          <CartProvider>
+            <BrowserRouter>
+              <PortalModals />
+              <Routes>
+                <Route path="/" element={<Movies />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </CartProvider>
+        </ModalProvider>
+      </QueryClientProvider>
     </div>
   )
 }

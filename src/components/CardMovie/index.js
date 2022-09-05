@@ -20,12 +20,13 @@ const CardMovie = ({
   }
 
   const genreName = useMemo(() => {
-    return genres.find(genre => genre.id === genreId).name || 'Sem gênero'
+    return genres.find(genre => genre.id === genreId)?.name || 'Sem gênero'
   }, [genreId])
 
   const dateFormat = useMemo(() => {
-    const theDate = new Date(releaseDate)
+    if (!releaseDate) return
 
+    const theDate = new Date(releaseDate)
     const day = new Intl.DateTimeFormat('pt-BR', { day: 'numeric' }).format(
       theDate,
     )
