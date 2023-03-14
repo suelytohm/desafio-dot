@@ -70,7 +70,7 @@ const CardMovie = ({
       <div className="container">
         <img
           className="img-rating"
-          src="https://simpleicon.com/wp-content/uploads/star-256x256.png"
+          src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png"
           alt="rating"
         />
         <span>
